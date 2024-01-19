@@ -1,0 +1,328 @@
+
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Timbre Transfer</title>
+      <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+      <!-- <link rel="shortcut icon" href="../../images/taco.png"> -->
+      <script>
+         function play(path) {{
+           var player = document.getElementById('player');
+           player.src = path;
+           player.play();
+         }}
+      </script>
+      <style>
+         .audio-cell {
+         /* Center audio widgets in the table cell. */
+         text-align: center;
+         padding-bottom: 1px;
+         padding-top: 1px;
+         }
+         .audio-cell-padded {
+         text-align: center;
+         padding-bottom: 10px;
+         padding-top: 10px;
+         }
+         .audio-header {
+         /* Don't wrap header text. */
+         white-space: nowrap;
+         /* Some breaking space between headers for readability. */
+         padding-right: 5px;
+         padding-left: 5px;
+         }
+         .reference-cell {
+         /* For uniformity and to wrap long reference text, limit the reference cell's width. */
+         width: 25%;
+         padding-top: 20px;
+         padding-bottom: 20px;
+         }
+         .sample audio {
+         vertical-align: middle;
+         padding-left: 3px;
+         padding-right: 3px;
+         }
+         .round-button {
+         box-sizing: border-box;
+         display:block;
+         width:30px;
+         height:30px;
+         padding-top: 8px;
+         padding-left: 3px;
+         line-height: 6px;
+         border: 1.2px solid #000;
+         border-radius: 50%;
+         color: #000;
+         text-align:center;
+         background-color: rgba(0,0,0,0.00);
+         font-size:6px;
+         box-shadow: 0px 0px 2px rgba(0,0,0,1);
+         transition: all 0.2s ease;
+         }
+         .round-button:hover {
+         background-color: rgba(0,0,0,0.0);
+         box-shadow: 0px 0px 4px rgba(0,0,0,1);
+         }
+         .round-button:active {
+         background-color: rgba(0,0,0,0.01);
+         box-shadow: 0px 0px 1px rgba(0,0,0,1);
+         }
+      </style>
+   </head>
+   <body>
+     <div class="main">
+       <article>
+         <header>
+            <h1>Timbre Transfer</h1>
+         </header>
+      </article>
+      <div>
+      <p> Here are some samples generated using the models. "Single model" refers to one of the models trained to perform a specific timbre transfer (models (i) to (iv)), while "all model" refers to the model trained to perform all different types of timbre transfers. The first example in each section corresponds to the same excerpt of the performance across all the models.
+      </p>
+      <h3>
+        Contents
+      </h3>
+      <p>
+  <a href="#piano_vibraphone">Piano -> Vibraphone</a><br/>
+  <a href="#vibraphone_piano">Vibraphone -> Piano</a><br/>
+  <a href="#strings_clarinet">Strings -> Clarinet</a><br/>
+  <a href="#clarinet_strings">Clarinet -> Strings</a><br/>
+  <a href="#piano_strings_vibraphone_clarinet">Mixture (Piano + Strings) -> Mixture (Vibraphone + Clarinet)</a><br/>
+  <a href="#vibraphone_clarinet_piano_strings">Mixture (Vibraphone + Clarinet) -> Mixture (Piano + Strings)</a><br/>
+      </p>
+	      
+  <h3 id="#piano_vibraphone">Piano -> Vibraphone</h3><br/>
+  <table>
+    <thead>
+    <tr>
+      <th>Conditioning instrument ground-truth (Piano)</th>
+      <th>Target instrument ground-truth (Vibraphone)</th>
+      <th>All model</th>
+      <th>Single model</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/050_fragment_15.5.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/050_fragment_15.2.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/all_model/050_fragment_15.5_synthesized.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/piano_vibraphone/050_fragment_15.5_synthesized.wav" type="audio/wav"></audio></td>
+    </tr>
+    </tbody>
+
+    <tbody>
+    <tr>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/051_fragment_25.5.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/051_fragment_25.2.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/all_model/051_fragment_25.5_synthesized.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/piano_vibraphone/051_fragment_25.5_synthesized.wav" type="audio/wav"></audio></td>
+    </tr>
+    </tbody>
+
+        <tbody>
+    <tr>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/052_fragment_92.5.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/052_fragment_92.2.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/all_model/052_fragment_92.5_synthesized.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/piano_vibraphone/052_fragment_92.5_synthesized.wav" type="audio/wav"></audio></td>
+    </tr>
+    </tbody>
+
+  </table><br>
+
+  <h3 id="#vibraphone_piano">Vibraphone -> Piano</h3><br/>
+  <table>
+    <thead>
+    <tr>
+      <th>Conditioning instrument ground-truth (Piano)</th>
+      <th>Target instrument ground-truth (Vibraphone)</th>
+      <th>All model</th>
+      <th>Single model</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/050_fragment_15.2.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/050_fragment_15.5.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/all_model/050_fragment_15.2_synthesized.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/vibraphone_piano/050_fragment_15.2_synthesized.wav" type="audio/wav"></audio></td>
+    </tr>
+    </tbody>
+
+    <tbody>
+    <tr>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/051_fragment_6.2.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/051_fragment_6.5.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/all_model/051_fragment_6.2_synthesized.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/vibraphone_piano/051_fragment_6.2_synthesized.wav" type="audio/wav"></audio></td>
+    </tr>
+    </tbody>
+
+        <tbody>
+    <tr>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/050_fragment_52.2.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/050_fragment_52.5.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/all_model/050_fragment_52.2_synthesized.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/vibraphone_piano/050_fragment_52.2_synthesized.wav" type="audio/wav"></audio></td>
+    </tr>
+    </tbody>
+
+  </table><br>
+
+  <h3 id="#strings_clarinet">Strings -> Clarinet</h3><br/>
+  <table>
+    <thead>
+    <tr>
+      <th>Conditioning instrument ground-truth (Piano)</th>
+      <th>Target instrument ground-truth (Vibraphone)</th>
+      <th>All model</th>
+      <th>Single model</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/050_fragment_15.4.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/050_fragment_15.1.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/all_model/050_fragment_15.4_synthesized.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/strings_clarinet/050_fragment_15.4_synthesized.wav" type="audio/wav"></audio></td>
+    </tr>
+    </tbody>
+
+    <tbody>
+    <tr>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/051_fragment_7.4.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/051_fragment_7.1.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/all_model/051_fragment_7.4_synthesized.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/strings_clarinet/051_fragment_7.4_synthesized.wav" type="audio/wav"></audio></td>
+    </tr>
+    </tbody>
+
+        <tbody>
+    <tr>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/050_fragment_11.4.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/050_fragment_11.1.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/all_model/050_fragment_11.4_synthesized.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/strings_clarinet/050_fragment_11.4_synthesized.wav" type="audio/wav"></audio></td>
+    </tr>
+    </tbody>
+
+  </table><br>
+  
+  <h3 id="#clarinet_strings">Clarinet -> Strings</h3><br/>
+  <table>
+    <thead>
+    <tr>
+      <th>Conditioning instrument ground-truth (Piano)</th>
+      <th>Target instrument ground-truth (Vibraphone)</th>
+      <th>All model</th>
+      <th>Single model</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/050_fragment_15.1.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/050_fragment_15.4.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/all_model/050_fragment_15.1_synthesized.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/clarinet_strings/050_fragment_15.1_synthesized.wav" type="audio/wav"></audio></td>
+    </tr>
+    </tbody>
+
+    <tbody>
+    <tr>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/052_fragment_17.1.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/052_fragment_17.4.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/all_model/052_fragment_17.1_synthesized.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/clarinet_strings/052_fragment_17.1_synthesized.wav" type="audio/wav"></audio></td>
+    </tr>
+    </tbody>
+
+        <tbody>
+    <tr>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/051_fragment_35.1.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/051_fragment_35.4.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/all_model/051_fragment_35.1_synthesized.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/clarinet_strings/051_fragment_35.1_synthesized.wav" type="audio/wav"></audio></td>
+    </tr>
+    </tbody>
+
+  </table><br>
+
+  <h3 id="#piano_strings_vibraphone_clarinet">Mixture (Piano + Strings) -> Mixture (Vibraphone + Clarinet)</h3><br/>
+  <table>
+    <thead>
+    <tr>
+      <th>Conditioning instrument ground-truth (Piano)</th>
+      <th>Target instrument ground-truth (Vibraphone)</th>
+      <th>All model</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/050_fragment_15.3.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/050_fragment_15.0.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/all_model/050_fragment_15.3_synthesized.wav" type="audio/wav"></audio></td>
+    </tr>
+    </tbody>
+
+    <tbody>
+    <tr>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/051_fragment_17.3.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/051_fragment_17.0.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/all_model/051_fragment_17.3_synthesized.wav" type="audio/wav"></audio></td>
+    </tr>
+    </tbody>
+
+        <tbody>
+    <tr>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/050_fragment_47.3.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/050_fragment_47.0.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/all_model/050_fragment_47.3_synthesized.wav" type="audio/wav"></audio></td>
+    </tr>
+    </tbody>
+
+  </table><br>
+
+  <h3 id="#vibraphone_clarinet_piano_strings">Mixture (Vibraphone + Clarinet) -> Mixture (Piano + Strings)</h3><br/>
+  <table>
+    <thead>
+    <tr>
+      <th>Conditioning instrument ground-truth (Piano)</th>
+      <th>Target instrument ground-truth (Vibraphone)</th>
+      <th>Single model</th>
+      <th>All model</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/050_fragment_15.0.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/050_fragment_15.3.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/all_model/050_fragment_15.0_synthesized.wav" type="audio/wav"></audio></td>
+    </tr>
+    </tbody>
+
+    <tbody>
+    <tr>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/052_fragment_86.0.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/052_fragment_86.3.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/all_model/052_fragment_86.0_synthesized.wav" type="audio/wav"></audio></td>
+    </tr>
+    </tbody>
+
+        <tbody>
+    <tr>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/051_fragment_44.0.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/ground_truth/051_fragment_44.3.wav" type="audio/wav"></audio></td>
+      <td><audio controls style="width: 225px; height: 50px"><source src="samples/all_model/051_fragment_44.0_synthesized.wav" type="audio/wav"></audio></td>
+    </tr>
+    </tbody>
+
+  </table><br>
+      </div>
+   </body>
+</html>
